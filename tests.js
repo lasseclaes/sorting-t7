@@ -1,8 +1,8 @@
 const template = document.querySelector("template").content;
 deck.forEach(card => {
   const copy = template.cloneNode(true);
-  copy.querySelector("h1").innerHTML = card;
-  copy.querySelector(".flip-card").dataset.cardvalue = card.split("&")[0];
+  copy.querySelector("h1").innerHTML = card.value + card.suit;
+  copy.querySelector(".flip-card").dataset.cardvalue = card.value
   document.querySelector(".ex1").appendChild(copy);
 })
 const test = function () {
@@ -21,10 +21,10 @@ const test = function () {
 
   function validate() {
     const copy = [...deck];
-    copy.sort((a, b) => a - b);
+    copy.sort((a, b) => a.value - b.value);
     let equal = true;
     for (let i = 0; i < copy.length; i++) {
-      if (deck[i] != copy[i]) {
+      if (deck[i].value != copy[i].value) {
         equal = false;
         break;
       }
