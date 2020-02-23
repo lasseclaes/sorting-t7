@@ -14,7 +14,8 @@ const test = function () {
     })
     if (counter === 13) {
       clearInterval(intID);
-      validate();
+      setTimeout(validate, 500);
+
     }
   }, 300)
 
