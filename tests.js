@@ -5,25 +5,33 @@ deck.forEach(card => {
   copy.querySelector(".flip-card").dataset.cardvalue = card.split("&")[0];
   document.querySelector(".ex1").appendChild(copy);
 })
+const test = function () {
+  let counter = 0;
+  const intID = setInterval(() => {
+    counter++;
+    document.querySelectorAll(`[data-cardvalue="${counter}"]`).forEach(card => {
+      card.classList.add("flipped");
+    })
+    if (counter === 13) {
+      clearInterval(intID);
+      validate();
+    }
+  }, 300)
 
-let counter = 0;
-const intID = setInterval(() => {
-  counter++;
-  document.querySelectorAll(`[data-cardvalue="${counter}"]`).forEach(card => {
-    card.classList.add("flipped");
-  })
-  if (counter === 13) {
-    clearInterval(intID);
-    validate();
+  function validate() {
+    const copy = [...deck];
+    copy.sort((a, b) => a - b);
+    let equal = true;
+    for (let i = 0; i < copy.length; i++) {
+      if (deck[i] != copy[i]) {
+        equal = false;
+        break;
+      }
+    }
+    if (!equal) {
+      document.body.innerHTML = "EPIC FAIL!!!"
+    } else {
+      document.body.innerHTML = "EPIC WIN!!!"
+    }
   }
-}, 300)
-
-function validate() {
-
 }
-/*document.querySelectorAll(".ex1>*").forEach((card, index) => {
-  setTimeout(() => {
-    card.classList.add("flipped");
-  }, index * 50)
-})*/
-//create copy of deck, sort it correctly, compare the two arrays
