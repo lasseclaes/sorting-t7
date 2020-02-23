@@ -85,13 +85,39 @@
       margin: .5rem;
     }
 
+    header {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      background: black;
+      color: white;
+      padding: 2rem;
+    }
+
+    .deckStart {
+      display: grid;
+    }
+
+    .deckStart>* {
+      grid-area: 1 /1;
+    }
+
   </style>
 </head>
 
 <body>
-  <h1>Exercise #1</h1>
-  <p>Sort the deck of cards so that it becomes [1,1,1,1,2,2...]</p>
-  <button onClick="test()">Test</button>
+  <header>
+    <section>
+      <h1>Exercise #1</h1>
+      <ol>
+        <li>Open main.js</li>
+        <li>Sort the "deck" so that it becomes [1,1,1,1,2,2...]</li>
+        <li>Click the button</li>
+      </ol>
+      <button>(I am the button)</button>
+    </section>
+    <section class="deckStart"></section>
+  </header>
+
   <div class="ex1">
     <template id="cardTemplate">
       <div class="flip-card">
