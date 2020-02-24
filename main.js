@@ -49,6 +49,17 @@ const deck = [
   "1"
 ];
 
+function compare(a, b) {
+  if (a < b) {
+    return -1;
+  } else if (a > b) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+deck.sort(compare);
 /*
 Sort the deck of cards so that it becomes [1,1,1,1,2,2...]
 */
