@@ -49,14 +49,19 @@ const deck = [
   "1"
 ];
 
+//doesn't work because of strings.
+//function compare(a, b) {
+//  if (a < b) {
+//    return -1;
+//  }
+//  if (a > b) {
+//    return 1;
+//  }
+//  return 0;
+//}
+
 function compare(a, b) {
-  if (a < b) {
-    return -1;
-  } else if (a > b) {
-    return 1;
-  } else {
-    return 0;
-  }
+  return a - b
 }
 
 deck.sort(compare);
